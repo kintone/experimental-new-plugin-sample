@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "version": "0.2.0",
+  "type": "APP",
+  "components": [
+    {
+      "type": "APP_INDEX_HEADER_SPACE",
+      "js": ["js/index.js"],
+      "css": ["css/index.css"]
+    }
+  ],
+  "allowed_hosts": ["https://example.com/"],
+  "permissions": {
+    "js_api": ["kintone.app.getId", "kintone.api"],
+    "rest_api": ["/k/v1/records.json:get"]
+  },
+  "icon": "images/icon.png",
+  "name": {
+    "ja": "試験的な新プラグインシステムの動作確認用サンプルプラグイン",
+    "en": "Sample Plugin for Experimental New Plugin System"
+  },
+  "description": {
+    "ja": "試験的な新プラグインシステムの動作を確認するためのサンプルプラグインです。アプリページにエディタを追加し、任意のコードを実行できます。",
+    "en": "This is a sample plugin to test the behavior of Experimental New Plugin System. Add an editor to the app page and run any code."
+  },
+  "homepage_url": {
+    "en": "https://github.com/kintone/experimental-new-plugin-sample",
+    "ja": "https://github.com/kintone/experimental-new-plugin-sample"
+  }
+}
