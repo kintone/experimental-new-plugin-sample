@@ -11,7 +11,7 @@
   ],
   "allowed_hosts": ["https://example.com/"],
   "permissions": {
-    "js_api": ["kintone.app.getId", "kintone.api"],
+    "js_api": ["kintone.app.getId", "kintone.api", "kintone.app.setFieldStyle"],
     "rest_api": ["/k/v1/records.json:get"]
   },
   "icon": "images/icon.png",
