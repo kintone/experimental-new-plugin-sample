@@ -17,22 +17,6 @@ Install dependencies.
 npm i
 ```
 
-Copy `.env.example` to `.env`.
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` file and set your kintone environment.  
-These variables are used in upload command. Set upload target kintone url (`KINTONE_BASE_URL`) and user (`KINTONE_USERNAME` and `KINTONE_PASSWORD`) who has permission to upload plugin.
-
-```text
-# exmplae
-KINTONE_BASE_URL=http://localhost
-KINTONE_USERNAME=cybozu
-KINTONE_PASSWORD=cyboz
-```
-
 ### Build and upload plugin
 
 #### Initial Packaging
@@ -56,7 +40,7 @@ Replace the `[YOUR_PLUGIN_KEY_PATH]` part in the `build` command of `package.jso
 
 #### Packaging from the Second Time Onwards
 
-You only have to execute this command.
+You only have to execute `build` command.
 
 ```bash
 npm run build
