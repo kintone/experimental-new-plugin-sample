@@ -16,11 +16,11 @@
   },
   "icon": "images/icon.png",
   "name": {
-    "ja": "試験的な新プラグインシステムの動作確認用サンプルプラグイン",
+    "ja": "プラグインの新しい開発方式の動作確認用サンプルプラグイン",
     "en": "Sample Plugin for Experimental New Plugin System"
   },
   "description": {
-    "ja": "試験的な新プラグインシステムの動作を確認するためのサンプルプラグインです。アプリページにエディタを追加し、任意のコードを実行できます。",
+    "ja": "プラグインの新しい開発方式を試すためのサンプルプラグインです。アプリのレコード一覧画面上部にエディタを追加し、任意のコードを実行できます。",
     "en": "This is a sample plugin to test the behavior of Experimental New Plugin System. Add an editor to the app page and run any code."
   },
   "homepage_url": {
