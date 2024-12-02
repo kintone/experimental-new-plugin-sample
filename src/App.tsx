@@ -16,9 +16,9 @@ export const App = () => {
         <div className="absolute right-2 bottom-2">
           <RunButton
             title={EXECUTE_SHORTCUT_KEY}
-            onClick={(e) => {
+            onClick={async (e) => {
               e.stopPropagation();
-              execute(code);
+              await execute(code);
             }}
           />
         </div>
