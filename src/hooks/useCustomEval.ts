@@ -23,7 +23,7 @@ export const useCustomEval = () => {
         };
 
         return [method, originalMethod];
-      })
+      }),
     );
 
     // Undo replaced console methods
@@ -50,10 +50,7 @@ export const useCustomEval = () => {
 
       const handleError = (e: unknown) => {
         if (e instanceof Error) {
-          setExecutedLog((prev) => [
-            ...prev,
-            { type: "exception", payload: e },
-          ]);
+          setExecutedLog((prev) => [...prev, { type: "exception", payload: e }]);
           return;
         }
         setExecutedLog((prev) => [
@@ -70,16 +67,13 @@ export const useCustomEval = () => {
       let result: unknown;
       try {
         result = await customEval(code);
-        setExecutedLog((prev) => [
-          ...prev,
-          { type: "result", payload: result },
-        ]);
+        setExecutedLog((prev) => [...prev, { type: "result", payload: result }]);
       } catch (e) {
         handleError(e);
-        return;
+        throw e;
       }
     },
-    [customEval]
+    [customEval],
   );
 
   return { executedLog, execute };

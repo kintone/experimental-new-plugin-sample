@@ -61,7 +61,7 @@ const Log: FC<{ payload: unknown[] }> = ({ payload }) => {
 const Inner: FC<{ payload: unknown }> = ({ payload }) => {
   if (isPrimitive(payload)) return <span>{String(payload)}</span>;
 
-  if (isError(payload)) return <pre>{payload.stack}</pre>;
+  if (isError(payload)) return <pre>{`Error: ${payload.message}`}</pre>;
 
   if (isElement(payload)) return <span>{payload.outerHTML}</span>;
 
@@ -71,9 +71,7 @@ const Inner: FC<{ payload: unknown }> = ({ payload }) => {
   return <span>{String(payload)}</span>;
 };
 
-const isPrimitive = (
-  value: unknown,
-): value is string | number | boolean | null | undefined =>
+const isPrimitive = (value: unknown): value is string | number | boolean | null | undefined =>
   value === null || value === undefined || typeof value !== "object";
 
 const jsonStringifiable = (value: unknown): boolean => {

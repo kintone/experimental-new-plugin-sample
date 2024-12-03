@@ -28,23 +28,17 @@ export default defineConfig(({ mode }) => {
       banner({
         content: (fileName) => {
           if (fileName.endsWith(".js"))
-            return fs.readFileSync(
-              path.resolve(__dirname, "./dist/licenses.txt"),
-              "utf-8"
-            );
+            return fs.readFileSync(path.resolve(__dirname, "./dist/licenses.txt"), "utf-8");
         },
       }),
       {
         // Pack to zip with `@kintone/plugin-packer` after build
         name: "zip-plugin",
         closeBundle: async () => {
-          exec(
-            process.env.INITIAL_PACK ? "npm run pack:init" : "npm run pack",
-            (err, stdout) => {
-              if (err) console.error(err);
-              else console.log(stdout);
-            }
-          );
+          exec(process.env.INITIAL_PACK ? "npm run pack:init" : "npm run pack", (err, stdout) => {
+            if (err) console.error(err);
+            else console.log(stdout);
+          });
         },
       },
     ],
