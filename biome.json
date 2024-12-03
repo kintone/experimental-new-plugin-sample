@@ -27,7 +27,7 @@
         "noUnusedVariables": "error"
       },
       "suspicious": {
-        "noArrayIndexKey": null
+        "noArrayIndexKey": "warn"
       }
     }
   }

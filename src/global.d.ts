@@ -7,5 +7,5 @@ declare namespace kintone {
       getHeaderMenuSpaceElement: () => Element | null;
     };
   };
-  export const waitForReady: () => Promise<void>
+  export const waitForReady: () => Promise<void>;
 }

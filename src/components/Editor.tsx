@@ -1,10 +1,6 @@
 import { acceptCompletion } from "@codemirror/autocomplete";
 import { indentWithTab } from "@codemirror/commands";
-import {
-  javascript,
-  javascriptLanguage,
-  scopeCompletionSource,
-} from "@codemirror/lang-javascript";
+import { javascript, javascriptLanguage, scopeCompletionSource } from "@codemirror/lang-javascript";
 import { keymap } from "@codemirror/view";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import CodeMirror from "@uiw/react-codemirror";

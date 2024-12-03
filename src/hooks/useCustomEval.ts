@@ -13,7 +13,7 @@ export type CustomEvalLog =
 export const useCustomEval = () => {
   const [executedLog, setExecutedLog] = useState<CustomEvalLog[]>([]);
 
-  const customEval = useCallback((code: string) => {
+  const customEval = useCallback(async (code: string) => {
     // Replacing `console` method
     const originalConsole = Object.fromEntries(
       consoleMethods.map((method) => {
@@ -23,7 +23,7 @@ export const useCustomEval = () => {
         };
 
         return [method, originalMethod];
-      })
+      }),
     );
 
     // Undo replaced console methods
@@ -34,11 +34,9 @@ export const useCustomEval = () => {
     };
 
     try {
-      // Execute `eval`, and if the result is a `Promise`, execute cleanup with `finally` (to display the logs in the `Promise` as well).
       // biome-ignore lint/security/noGlobalEval:
-      const result = window.eval(code);
-      if (result instanceof Promise) result.finally(cleanup);
-      else cleanup();
+      await window.eval(code);
+      cleanup();
     } catch (e) {
       cleanup();
       throw e;
@@ -46,16 +44,13 @@ export const useCustomEval = () => {
   }, []);
 
   const execute = useCallback(
-    (code: string) => {
+    async (code: string) => {
       // reset logs
       setExecutedLog([]);
 
       const handleError = (e: unknown) => {
         if (e instanceof Error) {
-          setExecutedLog((prev) => [
-            ...prev,
-            { type: "exception", payload: e },
-          ]);
+          setExecutedLog((prev) => [...prev, { type: "exception", payload: e }]);
           return;
         }
         setExecutedLog((prev) => [
@@ -71,20 +66,14 @@ export const useCustomEval = () => {
 
       let result: unknown;
       try {
-        result = customEval(code);
-        setExecutedLog((prev) => [
-          ...prev,
-          { type: "result", payload: result },
-        ]);
+        result = await customEval(code);
+        setExecutedLog((prev) => [...prev, { type: "result", payload: result }]);
       } catch (e) {
         handleError(e);
-        return;
+        throw e;
       }
-
-      // If the `result` is `Promise`, handle errors in the `catch` block.
-      if (result instanceof Promise) result.catch(handleError);
     },
-    [customEval]
+    [customEval],
   );
 
   return { executedLog, execute };
