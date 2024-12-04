@@ -2,6 +2,9 @@
 
 This is a sample plugin to test the behavior of experimental new plugin system. Add an editor to the app page and run any code.
 
+See also the following pages for more information. (Japanese Only)
+- https://cybozu.dev/ja/id/8f57f4783d4913a744222388/
+
 ## Requirement
 
 - node >= v18.14.0
@@ -74,4 +77,4 @@ npm run check
 
 ## License
 
-MIT
+[Apache License 2.0](./LICENSE)

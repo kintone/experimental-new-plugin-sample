@@ -2,6 +2,12 @@
   "name": "experimental-new-plugin-sample",
   "version": "0.1.0",
   "type": "module",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Cybozu, Inc.",
+    "url": "https://cybozu.co.jp"
+  },
   "scripts": {
     "dev": "run-p dev:*",
     "build": "run-s license:extract build:vite",
