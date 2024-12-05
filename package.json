@@ -24,7 +24,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.2",
     "@cybozu/license-manager": "^1.2.1",
-    "@kintone/cli": "^1.12.2",
+    "@kintone/cli": "^1.12.3",
     "@kintone/plugin-uploader": "^9.1.3",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
